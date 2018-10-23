@@ -1,9 +1,9 @@
 Attribute VB_Name = "ExternalExcelTables"
 Sub ExernalExcelTables()
-Dim oXL As Excel.Application
-Dim oWB As Excel.Workbook
-Dim oSheet As Excel.Worksheet
-Dim oRng As Excel.Range
+Dim oXL As Object 'Excel.Application
+Dim oWB As Object 'Excel.Workbook
+Dim oSheet As Object ' Excel.Worksheet
+Dim oRng As Object 'Excel.Range
 Dim ExcelWasNotRunning As Boolean
 Dim WorkbookToWorkOn As String
 
@@ -66,7 +66,8 @@ Application.ScreenUpdating = False
              
              If Err Then
                 ExcelWasNotRunning = True
-                Set oXL = New Excel.Application
+                'Set oXL = New Excel.Application
+                Set oXL = CreateObject("Excel.Application")
              End If
 
              On Error GoTo Err_Handler
